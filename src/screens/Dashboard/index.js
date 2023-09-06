@@ -27,7 +27,7 @@ const Dashboard = ({navigation}) => {
   const changeStateOfModal = () => {
     setAddCollaboraterModal(!addCollaboraterModal);
   };
-  console.log('User information===', userInformation);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.Primary.BLACK,
-    paddingHorizontal: Layout.SV_5,
+    paddingHorizontal: Layout.SV_10,
   },
   textStyle: {
     color: Colors.Primary.REGULAR,
