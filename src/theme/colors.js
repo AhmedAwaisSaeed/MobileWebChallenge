@@ -19,6 +19,7 @@ export default {
     WHITE_9: 'rgba(255, 255, 255, 0.9)',
     WHITE_10: 'rgba(249, 249, 249, 1)',
     PINK: '#BB62A0',
+    BLUE: '#5242FB',
 
     GREY: '#fafafa',
     GREY_1: '#f5f5f5',
@@ -40,9 +41,9 @@ export default {
     DARK: '#161616',
     DARK_1: '#2D2C2C',
 
-    BLACK: 'rgb(0, 0, 0)',
-    BLACK_1: 'rgba(0, 0, 0, 0.1)',
-    BLACK_2: 'rgba(0, 0, 0, 0.2)',
+    BLACK: '#222222',
+    BLACK_1: '#09090D',
+    BLACK_2: '#151515',
     BLACK_3: 'rgba(0, 0, 0, 0.3)',
     BLACK_4: 'rgba(0, 0, 0, 0.4)',
     BLACK_5: 'rgba(0, 0, 0, 0.5)',

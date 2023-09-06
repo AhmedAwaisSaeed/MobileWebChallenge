@@ -1,29 +1,16 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  Platform,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import React, {useState} from 'react';
 import {useUserStore} from '../../zustand';
 import {TopBar} from '../../components';
 import {Images, Layout, Colors, Fonts} from '../../theme';
-import moment from 'moment';
 import AddCollaborater from '../Collaborater/AddCollaborater';
-import CollaboraterGroup from '../Collaborater/CollaboraterGroup';
-import VideoCategorySlider from './VideoCategorySlider';
 import FastImage from 'react-native-fast-image';
 import {SafeAreaView} from 'react-native-safe-area-context';
-const Dashboard = ({navigation}) => {
+const ProjectDetail = ({navigation, route}) => {
+  const {video} = route.params;
   const userInformation = useUserStore(state => state.userInformation);
-  const allVideoCategores = useUserStore(state => state.allVideoCategores);
-  const currentTab = useUserStore(state => state.currentTab);
   const {collaboraters, avatar} = userInformation;
   const [addCollaboraterModal, setAddCollaboraterModal] = useState(false);
-
-  const showRecentVideos = currentTab === 0 ? true : false;
 
   const changeStateOfModal = () => {
     setAddCollaboraterModal(!addCollaboraterModal);
@@ -32,59 +19,41 @@ const Dashboard = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <StatusBar hidden />
         <AddCollaborater
           changeStateOfModal={changeStateOfModal}
           addCollaboraterModal={addCollaboraterModal}
         />
-        <TopBar
-          collaboraters={collaboraters}
-          changeStateOfModal={changeStateOfModal}
-          userAvatar={avatar}
-        />
-        <Text style={styles.textStyle}>Your recent videos</Text>
-        <Text style={styles.timeStyle}>{moment().format('hh:mm')}</Text>
-        <Text style={styles.dayStyle}>{moment().format('dddd')}</Text>
-        <VideoCategorySlider allVideoCategores={allVideoCategores} />
-        {showRecentVideos && (
-          <View style={styles.cardsContainer}>
-            <View style={styles.videosContainer} />
-            <View style={styles.videosContainerTwo} />
-            <View style={styles.videosContainerThree}>
-              <CollaboraterGroup
-                collaboraters={collaboraters.slice(-3)}
-                changeStateOfModal={changeStateOfModal}
-              />
-              <View style={styles.videoSection}>
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate('ProjectDetail', {
-                      video: userInformation.videos[0],
-                    })
-                  }>
-                  <FastImage
-                    style={styles.thumbnailStyle}
-                    source={{
-                      uri: userInformation.videos[0].thumbnail,
-                      priority: FastImage.priority.normal,
-                    }}
-                    resizeMode={FastImage.resizeMode.contain}
-                  />
-                </TouchableOpacity>
-                <View>
-                  <Text style={styles.descriptionStyle}>Ads Video Editor</Text>
-                  <Text style={styles.titleStyle}>First Project</Text>
-                </View>
-              </View>
-            </View>
+
+        <View style={styles.videoSection}>
+          <FastImage
+            style={styles.thumbnailStyle}
+            source={{
+              uri: video.thumbnail,
+              priority: FastImage.priority.normal,
+            }}
+            resizeMode={FastImage.resizeMode.cover}
+          />
+        </View>
+        <View style={styles.topBarRow}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.backButton}>
+            <Image source={Images.backIcon} />
+          </TouchableOpacity>
+          <View style={{flex: 1}}>
+            <TopBar
+              collaboraters={collaboraters}
+              changeStateOfModal={changeStateOfModal}
+              userAvatar={avatar}
+            />
           </View>
-        )}
+        </View>
       </View>
     </SafeAreaView>
   );
 };
 
-export default Dashboard;
+export default ProjectDetail;
 
 const styles = StyleSheet.create({
   container: {
@@ -145,9 +114,11 @@ const styles = StyleSheet.create({
     padding: Layout.SV_20,
   },
   videoSection: {
-    flexDirection: 'row',
+    // flexDirection: 'row',
+    flex: 1,
     alignItems: 'center',
-    marginVertical: Layout.SV_20,
+    // marginVertical: Layout.SV_20,
+    backgroundColor: 'orange',
   },
   titleStyle: {
     color: Colors.Primary.WHITE,
@@ -160,10 +131,26 @@ const styles = StyleSheet.create({
     fontSize: Layout.FSV_9,
   },
   thumbnailStyle: {
-    height: Layout.SV_70,
-    width: Layout.SV_70,
-    borderRadius: Layout.SV_10,
-    resizeMode: 'contain',
-    marginRight: Layout.SV_15,
+    height: '100%',
+    width: '100%',
+    // height: Layout.SV_70,
+    // width: Layout.SV_70,
+
+    // resizeMode: 'cover',
+  },
+  backButton: {
+    width: Layout.SV_30,
+    height: Layout.SV_30,
+    backgroundColor: Colors.Primary.BLACK_1,
+    borderRadius: Layout.SV_30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  topBarRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'absolute',
+    left: '8%',
+    right: '8%',
   },
 });

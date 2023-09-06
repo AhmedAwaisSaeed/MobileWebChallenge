@@ -5,6 +5,9 @@ const folderIcon = require('../assets/icons/folder.png');
 const profileIcon = require('../assets/icons/profile.png');
 const addIcon = require('../assets/icons/add.png');
 const notificationIcon = require('../assets/icons/notification.png');
+const smsIcon = require('../assets/icons/sms.png');
+const trashIcon = require('../assets/icons/trash.png');
+const backIcon = require('../assets/icons/back.png');
 
 export default {
   homeIcon,
@@ -14,4 +17,7 @@ export default {
   profileIcon,
   addIcon,
   notificationIcon,
+  smsIcon,
+  trashIcon,
+  backIcon,
 };

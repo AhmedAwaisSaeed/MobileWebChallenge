@@ -1,15 +1,18 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, Platform} from 'react-native';
 import React from 'react';
 import CollaboraterGroup from '../screens/Collaborater/CollaboraterGroup';
 import {Images, Layout, Colors} from '../theme';
 import FastImage from 'react-native-fast-image';
 
-const TopBar = ({collaboraters, userAvatar}) => {
+const TopBar = ({collaboraters, userAvatar, changeStateOfModal}) => {
   console.log('collaboraters Array==', collaboraters, userAvatar);
   return (
     <View style={styles.container}>
       <View style={styles.columnOne}>
-        <CollaboraterGroup collaboraters={collaboraters} />
+        <CollaboraterGroup
+          collaboraters={collaboraters.slice(-3)}
+          changeStateOfModal={changeStateOfModal}
+        />
       </View>
       <View style={styles.coulumnTwo}>
         <Image source={Images.notificationIcon} />
@@ -35,7 +38,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     flexDirection: 'row',
     padding: Layout.SV_10,
-    backgroundColor: 'red',
+    // backgroundColor: 'black',
     alignItems: 'center',
   },
   columnOne: {

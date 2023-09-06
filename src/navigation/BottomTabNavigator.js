@@ -1,21 +1,37 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Dashboard, Search, Folder, Collaborater, Setting} from '../screens';
+import {
+  Dashboard,
+  Search,
+  Folder,
+  Collaborater,
+  Setting,
+  ProjectDetail,
+} from '../screens';
 import {CustomIcon} from '../components';
 import {Colors} from '../theme';
+
 const Tab = createMaterialBottomTabNavigator();
 
 const MyTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Dashboard"
+      initialRouteName="DashboardTab"
       activeColor={Colors.Primary.REGULAR}
       inactiveColor={Colors.Primary.WHITE}
+      activeBackgroundColor={'red'}
+      inactiveBackgroundColor={'#b55031'}
       shifting={true}
-      barStyle={{backgroundColor: Colors.Primary.BLACK}}>
+      screenOptions={({route}) => ({
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: Colors.Primary.BLACK,
+        },
+      })}
+      barStyle={{backgroundColor: Colors.Primary.BLACK_1}}>
       <Tab.Screen
-        name="Dashboard"
+        name="DashboardTab"
         component={Dashboard}
         options={{
           tabBarLabel: '',

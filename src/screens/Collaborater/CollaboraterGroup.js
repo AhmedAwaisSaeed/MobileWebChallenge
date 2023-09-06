@@ -10,7 +10,7 @@ import React from 'react';
 import {Layout, Images, Colors} from '../../theme';
 import FastImage from 'react-native-fast-image';
 
-const CollaboraterGroup = ({collaboraters}) => {
+const CollaboraterGroup = ({collaboraters, changeStateOfModal}) => {
   const _renderItem = ({item, index}) => {
     const lastItem = index === collaboraters.length - 1 ? true : false;
     const {avatar} = item;
@@ -28,7 +28,9 @@ const CollaboraterGroup = ({collaboraters}) => {
           />
         </TouchableOpacity>
         {lastItem && (
-          <TouchableOpacity style={[styles.addContainer]}>
+          <TouchableOpacity
+            onPress={() => changeStateOfModal()}
+            style={[styles.addContainer]}>
             <View style={styles.addImageStyle}>
               <FastImage
                 style={styles.addIconStyle}
