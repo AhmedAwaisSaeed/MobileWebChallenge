@@ -1,14 +1,7 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {
-  Dashboard,
-  Search,
-  Folder,
-  Collaborater,
-  Setting,
-  ProjectDetail,
-} from '../screens';
+
+import {Dashboard, Search, Folder, Collaborater, Setting} from '../screens';
 import {CustomIcon} from '../components';
 import {Colors} from '../theme';
 

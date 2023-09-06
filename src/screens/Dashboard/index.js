@@ -3,13 +3,12 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Platform,
   StatusBar,
 } from 'react-native';
 import React, {useState} from 'react';
 import {useUserStore} from '../../zustand';
 import {TopBar} from '../../components';
-import {Images, Layout, Colors, Fonts} from '../../theme';
+import {Layout, Colors, Fonts} from '../../theme';
 import moment from 'moment';
 import AddCollaborater from '../Collaborater/AddCollaborater';
 import CollaboraterGroup from '../Collaborater/CollaboraterGroup';

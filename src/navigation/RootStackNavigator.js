@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dashboard, ProjectDetail} from '../screens';
+import {ProjectDetail} from '../screens';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomTabNavigator from './BottomTabNavigator';
 const Stack = createNativeStackNavigator();

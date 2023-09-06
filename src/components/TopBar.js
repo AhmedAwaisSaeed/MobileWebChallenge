@@ -1,11 +1,10 @@
-import {StyleSheet, Text, View, Image, Platform} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 import React from 'react';
 import CollaboraterGroup from '../screens/Collaborater/CollaboraterGroup';
-import {Images, Layout, Colors} from '../theme';
+import {Images, Layout} from '../theme';
 import FastImage from 'react-native-fast-image';
 
 const TopBar = ({collaboraters, userAvatar, changeStateOfModal}) => {
-  console.log('collaboraters Array==', collaboraters, userAvatar);
   return (
     <View style={styles.container}>
       <View style={styles.columnOne}>
@@ -35,10 +34,8 @@ export default TopBar;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     flexDirection: 'row',
     padding: Layout.SV_10,
-    // backgroundColor: 'black',
     alignItems: 'center',
   },
   columnOne: {

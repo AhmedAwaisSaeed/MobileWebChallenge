@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {Images, Layout, Colors, Fonts} from '../../theme';
+import {Layout, Colors, Fonts} from '../../theme';
 import FastImage from 'react-native-fast-image';
 const CollaboraterInfo = ({item}) => {
   const {name, email, avatar} = item;

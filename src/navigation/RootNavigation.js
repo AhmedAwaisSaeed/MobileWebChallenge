@@ -1,10 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import RootStackNavigator from './RootStackNavigator';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 const RootNavigation = () => {
   const navTheme = {
     ...DefaultTheme,

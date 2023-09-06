@@ -1,6 +1,6 @@
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList} from 'react-native';
 import React from 'react';
-import {Layout, Colors} from '../../theme';
+import {Layout} from '../../theme';
 import CategoryInfo from './CategoryInfo';
 import {useUserStore} from '../../zustand';
 const VideoCategorySlider = ({allVideoCategores}) => {
@@ -29,7 +29,6 @@ const VideoCategorySlider = ({allVideoCategores}) => {
         data={allVideoCategores}
         renderItem={renderCategory}
         keyExtractor={item => String(item._id)}
-        // extraData={}
       />
     </View>
   );

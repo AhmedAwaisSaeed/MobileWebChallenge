@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {Layout, Colors, Fonts} from '../../theme';
 
 const CategoryInfo = ({item, index, setPressedState, setCurrentTab}) => {

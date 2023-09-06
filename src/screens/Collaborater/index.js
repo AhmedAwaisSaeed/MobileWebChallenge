@@ -25,14 +25,12 @@ const Collaborater = ({navigation}) => {
   const changeStateOfModal = () => {
     setAddCollaboraterModal(!addCollaboraterModal);
   };
-  // console.log('User information===', userInformation);
 
   let row = [];
   let prevOpenedRow;
 
   const renderItem = ({item, index}, onClick) => {
     const closeRow = () => {
-      console.log('closerow');
       if (prevOpenedRow && prevOpenedRow !== row[index]) {
         prevOpenedRow.close();
       }
